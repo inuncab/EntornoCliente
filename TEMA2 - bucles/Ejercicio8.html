@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desc fac primos</title>
+</head>
+<body>
+
+    <script>
+        let num = Number(prompt("Introduce un número"));
+        
+         // let num = 18;
+         let factor = 2
+         let cadena = ""
+        do {
+            
+            if (num % factor == 0) {
+                num = num / factor   
+                
+                if (num == 1){
+                    cadena =  cadena + factor
+                }else{
+                cadena =  cadena + factor + " x"    
+                }
+            }else{
+             factor ++
+            }
+        
+        } while (num != 1){
+            
+            alert("Los factores primos son los siiguientes: "+ cadena)
+        }
+
+    </script>
+    
+</body>
+</html>
+
