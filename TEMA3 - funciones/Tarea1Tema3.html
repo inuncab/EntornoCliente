@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu figuras</title>
+</head>
+<body>
+
+    <script>      
+
+        function primerMenu(opcion){
+                  
+            opcion = Number(prompt("SELECCIONA UNA OPCION \n" +
+                "1. Elije entre cubo, esfera o cilindro \n" +
+                "2. Introduzca valores de las variables \n" +
+                "3. Calculo de volumen \n" +
+                "4. Calculo del área \n" +
+                "5. Finalizar" ))
+
+
+            switch (opcion) {
+
+            case 1:
+                    opcionFigura = Number(prompt("SELECCIONA UNA OPCION \n 1. Cubo \n 2. Esfera \n 3. Cilindro"))
+                    primerMenu()
+                    break;
+
+
+            case 2:
+                    pidevariables()
+                    primerMenu()
+                    break;
+                   
+            case 3:
+                    calcularVolumen()
+                    primerMenu()
+                    break; 
+
+            case 4:
+                    calcularArea()
+                    primerMenu()
+                    break; 
+
+            case 5:
+
+                    break;         
+                    
+            default:
+                    alert ("introduce un valor correcto")
+                    primerMenu()
+                    break;
+            }   
+        }
+
+  
+            
+        // AQUI SE PIDEN LAS VARIABLES
+        function pidevariables(){
+            // volumen de un cubo
+            if(opcionFigura === 1){
+                lado = Number(prompt("lado en cm"))
+                primerMenu()
+
+            }else if (opcionFigura === 2){
+                // volumen de esfera
+                radioEsf = Number(prompt("radio en cm"))
+                primerMenu()  
+
+            }else if(opcionFigura === 3){
+                // volumen de cilindro
+                alturaH = Number(prompt("altura en cm"))
+                radioR = Number(prompt("radio en cm"))
+                primerMenu() 
+            }else {
+                alert("algo pasa")
+                variablesVolumen()
+            }   
+        }
+
+
+        // AQUI SE HACEN LAS OPERACIONES CON LAS FORMULAS DE AREA
+            function calcularArea (){
+                let mensaje;
+            
+                if (opcionFigura === 1 ){
+                   // formula area del cubo
+                   areaCubo = 6 * (lado ** 2)
+                   mensaje = "El area de cubo con " + lado + "cm es de: " + areaCubo + " cm" 
+
+                }else if (opcionFigura === 2 ){
+                    // formula area del esfera
+                    areaEsfera = Math.PI * (radioEsf ** 2)
+                    mensaje = "El area de una esfera con " + radioEsf + "cm de radio es de: " + areaEsfera + " cm"
+                    
+                }else if (opcionFigura === 3 ){
+                    // formula area del cilindro
+                    areaCilindro = (2 * Math.PI * (radioR ** 2)) + (2 * Math.PI * radioR * alturaH )     
+                    mensaje = "El area de un cilindro con " + alturaH + "cm de altura y " + radioR + " cm de radio \n es de " + areaCilindro + " cm"
+                }else{
+                    mensaje = "algo pasa"
+                    calcularArea()
+                }
+
+                alert(mensaje)
+
+
+            }
+
+            // AQUI SE HACEN LAS OPERACIONES CON LAS FORMULAS DE VOLUMEN
+            function calcularVolumen(){
+
+             let mensaje;
+            
+                if (opcionFigura === 1 ){
+                   // formula volumen del cubo
+                   volumenCubo = lado ** 3
+                   mensaje = "El volumen de un cubo con " + lado + " cm " + "es de: " + volumenCubo + " cm"
+
+                }else if (opcionFigura === 2 ){
+                    // formula volumen del esfera
+                   volumenEsfera = ((4/3) * Math.PI) * (radioEsf **3)
+                   mensaje = " El volumen de una esfera con radio de: " + radioEsf + " es de: " + volumenEsfera 
+                    
+                }else if (opcionFigura === 3 ){
+                   // formula volumen del cilindro
+                   volumenCilindro = (Math.PI * (radioR **2) * alturaH)
+                   mensaje = "El volumen de un cilindro con " + alturaH + "cm de altura y " + radioR + " cm de radio \n es de " + volumenCilindro + " cm"
+
+                }else{
+                    mensaje = "algo pasa"
+                    calcularVolumen()
+                }
+
+                alert(mensaje)
+
+
+
+            }
+            
+        primerMenu()
+    </script>
+
+ 
+   
+</body>
+</html>  
